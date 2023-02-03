@@ -72,14 +72,14 @@ class ArraySearch {
         int[] array = new int[n];
         array[0] = 1;
         for (int i = 1; i < n; i++) {
-            array[i] = array[i - 1] + 1 + (int) (Math.random() * 10);
+            array[i] = array[i - 1] + 1 + (int) (Math.random() * 3);
         }
         int key = array[(int) (Math.random() * n + 1)];
         long[] time = new long[3];
-        int m = 100000;
+        int m = 1000000;
         for (int i = 0; i < m; ++i) {
             key = array[(int) (Math.random() * n)];
-            if (i % (3 * m / 100) == 0) System.out.println(i * 100 / m / 3 + "%");
+            if (i % (3 * m / 100) == 0) System.out.println(i / 3 * 100 / m + "%");
 
             startTime = System.nanoTime();
             binarySearch(array, key, 0, array.length - 1);
@@ -89,7 +89,7 @@ class ArraySearch {
         }
         for (int i = m; i < 2 * m; ++i) {
             key = array[(int) (Math.random() * n)];
-            if (i % (3 * m / 100) == 0) System.out.println(i * 100 / m / 3 + "%");
+            if (i % (3 * m / 100) == 0) System.out.println(i / 3 * 100 / m + "%");
 
             startTime = System.nanoTime();
             goldenSectionSearch(array, key);
@@ -99,7 +99,7 @@ class ArraySearch {
         }
         for (int i = 2 * m; i < 3 * m; ++i) {
             key = array[(int) (Math.random() * n)];
-            if (i % (3 * m / 100) == 0) System.out.println(i * 100 / m / 3 + "%");
+            if (i % (3 * m / 100) == 0) System.out.println(i / 3 * 100 / m + "%");
 
             startTime = System.nanoTime();
             NewtonSearch(array, key);
